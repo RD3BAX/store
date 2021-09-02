@@ -12,6 +12,10 @@ namespace Store
 
         public string Title { get; }
 
+        public string Description { get; }
+
+        public decimal Price { get; }
+
         internal static bool IsIsbn(string s)
         {
             if (s == null)
@@ -24,12 +28,14 @@ namespace Store
             return Regex.IsMatch(s, @"ISBN\d{10}(\d{3})?$");
         }
 
-        public Book(int id, string isbn, string author, string title)
+        public Book(int id, string isbn, string author, string title, string description, decimal price)
         {
             Id = id;
             Isbn = isbn;
             Author = author;
             Title = title;
+            Description = description;
+            Price = price;
         }
     }
 }
